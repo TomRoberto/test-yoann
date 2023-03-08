@@ -9,11 +9,11 @@ const app = express();
 // MIDDLEWARES
 app.use(express.json());
 const corsOptions = {
-  origin: true, //included origin as true
+  origin: "http://localhost:3000", //included origin as true
   credentials: true, //included credentials as true
 };
-// app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors(corsOptions));
+// app.use(cors());
 // For auth
 app.use(cookieParser());
 
