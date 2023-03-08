@@ -1,27 +1,27 @@
-const express = require('express');
-const cors = require('cors')
+const express = require("express");
+const cors = require("cors");
 // For auth
-const cookieParser = require('cookie-parser')
+const cookieParser = require("cookie-parser");
 
-// Create server, it's the variable "app" 
+// Create server, it's the variable "app"
 const app = express();
 
 // MIDDLEWARES
 app.use(express.json());
 const corsOptions = {
-    origin: true, //included origin as true
-    credentials: true, //included credentials as true
+  origin: true, //included origin as true
+  credentials: true, //included credentials as true
 };
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors());
 // For auth
-app.use(cookieParser())
+app.use(cookieParser());
 
 // ROUTES
 app.get("/", (req, res) => {
-  res.json({message : "Full Project 1 - API Ecommerce MERN - Pizzeria"});
+  res.json({ message: "Full Project 1 - API Ecommerce MERN - Pizzeria" });
 });
-app.use('/api/auth', require('../server/routes/Auth.Routes'))
-app.use('/api/users', require('../server/routes/Users.Routes'))
+app.use("/api/auth", require("../server/routes/Auth.Routes"));
+app.use("/api/users", require("../server/routes/Users.Routes"));
 
-
-module.exports = app
+module.exports = app;
